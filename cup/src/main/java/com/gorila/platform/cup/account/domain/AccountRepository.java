@@ -10,10 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 interface AccountRepository extends JpaRepository<Account, Long> {
 
-    @Query(value = "SELECT * FROM account " +
-            "RIGHT JOIN competitor " +
-            "ON competitor.account_id = account.id " +
-            "WHERE account.id = :accountId", nativeQuery = true)
-    Competitor findCompetitorByAccountId(@Param("accountId") Long accountId);
-
 }
