@@ -32,9 +32,7 @@ class AccountEndpoints {
 
     @GetMapping("/account/{accountId}/competitor")
     ResponseEntity<Competitor> competitorByAccountId(@PathVariable Long accountId){
-        Competitor databaseCompetitor = service.getCompetitorIdByAccountId(accountId);
+        Competitor databaseCompetitor = service.getCompetitorByAccountId(accountId);
         return new ResponseEntity<>(databaseCompetitor, HttpStatus.OK);
     }
-
-
 }

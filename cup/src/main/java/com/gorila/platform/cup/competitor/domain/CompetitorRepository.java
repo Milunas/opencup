@@ -18,4 +18,6 @@ public interface CompetitorRepository extends JpaRepository<Competitor, Long> {
             "WHERE competitor.weight BETWEEN :value1 AND :value2 " +
             "AND competitor.belt = :belt", nativeQuery = true)
     Set<Competitor> findCompetitorsByCategory(@Param("value1") Integer value1, @Param("value2") Integer value2, @Param("belt") CompetitorBelt belt);
+
+    Optional<Competitor> findByAccountEmail(String email);
 }
